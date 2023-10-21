@@ -151,6 +151,7 @@ function GetMap() {
     let locations = [centerPoint, tallinnPoint];
     let bounds = Microsoft.Maps.LocationRect.fromLocations(locations);
     map.setView({ bounds: bounds });
+    map.entities.push(pushpin, tallinnPushpin);
 
     let infobox = new Microsoft.Maps.Infobox(centerPoint, { visible: false });
     infobox.setMap(map);
@@ -173,7 +174,7 @@ function GetMap() {
         });
     });
 
-    map.entities.push(pushpin, tallinnPushpin);
+    
 }
 
 // https://dev.virtualearth.net/REST/v1/Locations?q=1000 Vin Scully Ave, Los Angeles,CA&key=YOUR_KEY_HERE
