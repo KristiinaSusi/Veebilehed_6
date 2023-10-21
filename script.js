@@ -142,14 +142,14 @@ function GetMap() {
     
     let pushpin = new Microsoft.Maps.Pushpin(centerPoint, {
             title: 'Tartu Ülikool',
-            subTitle: 'Hea koht',
-            text: 'UT'
+            //subTitle: 'Hea koht',
+            //text: 'UT'
         });
 
     let tallinnPushpin = new Microsoft.Maps.Pushpin(tallinnPoint, {
             title: 'Tallinna Vanalinn',
-            subTitle: 'Ka hea koht, aga mitte nii hea',
-            text: 'Tallinna vanalinn'
+            //subTitle: 'Ka hea koht, aga mitte nii hea',
+            //text: 'Tallinna vanalinn'
         });
 
 
@@ -157,23 +157,33 @@ function GetMap() {
     let bounds = Microsoft.Maps.LocationRect.fromLocations(locations);
     map.setView({ bounds: bounds });
 
-    let infobox = new Microsoft.Maps.Infobox(centerPoint, {
-        visible: false
-    });
+    let infobox;
 
     infobox.setMap(map);
 
 
     Microsoft.Maps.Events.addHandler(pushpin, 'click', function() {
+        if (!infobox) {
+            infobox = new Microsoft.Maps.Infobox(centerPoint, { visible: false });
+            infobox.setMap(map);
+        }
         infobox.setLocation(centerPoint);
         infobox.setOptions({
+            title: 'Tartu Ülikool',
+            description: 'Hea koht',
             visible: true,
         });
     });
 
     Microsoft.Maps.Events.addHandler(tallinnPushpin, 'click', function() {
+        if (!infobox) {
+            infobox = new Microsoft.Maps.Infobox(tallinnPoint, { visible: false });
+            infobox.setMap(map);
+        }
         infobox.setLocation(tallinnPoint);
         infobox.setOptions({
+            title: 'Tallinna Vanailnn',
+            description: 'Ka hea koht, aga mitte nii hea',
             visible: true,
         });
     });
@@ -183,4 +193,6 @@ function GetMap() {
 }
 
 // https://dev.virtualearth.net/REST/v1/Locations?q=1000 Vin Scully Ave, Los Angeles,CA&key=YOUR_KEY_HERE
+
+
 
