@@ -156,6 +156,7 @@ function GetMap() {
     let infobox = new Microsoft.Maps.Infobox(centerPoint, { visible: true });
     let infoboxTallinn = new Microsoft.Maps.Infobox(tallinnPoint, { visible: true });
     infobox.setMap(map);
+    infoboxTallin.setMap(map);
 
     Microsoft.Maps.Events.addHandler(pushpin, 'click', function() {
         infobox.setLocation(centerPoint);
