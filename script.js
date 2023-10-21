@@ -130,7 +130,7 @@ function GetMap() {
     let tallinnPoint = new Microsoft.Maps.Location(
         59.4370,
         24.7536
-    )
+    );
 
     map = new Microsoft.Maps.Map("#map", {
         credentials: mapAPIKey,
@@ -141,55 +141,39 @@ function GetMap() {
     });
     
     let pushpin = new Microsoft.Maps.Pushpin(centerPoint, {
-            title: 'Tartu Ülikool',
-            //subTitle: 'Hea koht',
-            //text: 'UT'
+            title: 'Tartu Ülikool'
         });
 
     let tallinnPushpin = new Microsoft.Maps.Pushpin(tallinnPoint, {
-            title: 'Tallinna Vanalinn',
-            //subTitle: 'Ka hea koht, aga mitte nii hea',
-            //text: 'Tallinna vanalinn'
+            title: 'Tallinna Vanalinn'
         });
-
 
     let locations = [centerPoint, tallinnPoint];
     let bounds = Microsoft.Maps.LocationRect.fromLocations(locations);
     map.setView({ bounds: bounds });
 
-    let infobox;
-
+    let infobox = new Microsoft.Maps.Infobox(centerPoint, { visible: false });
     infobox.setMap(map);
 
-
     Microsoft.Maps.Events.addHandler(pushpin, 'click', function() {
-        if (!infobox) {
-            infobox = new Microsoft.Maps.Infobox(centerPoint, { visible: false });
-            infobox.setMap(map);
-        }
         infobox.setLocation(centerPoint);
         infobox.setOptions({
             title: 'Tartu Ülikool',
             description: 'Hea koht',
-            visible: true,
+            visible: true
         });
     });
 
     Microsoft.Maps.Events.addHandler(tallinnPushpin, 'click', function() {
-        if (!infobox) {
-            infobox = new Microsoft.Maps.Infobox(tallinnPoint, { visible: false });
-            infobox.setMap(map);
-        }
         infobox.setLocation(tallinnPoint);
         infobox.setOptions({
-            title: 'Tallinna Vanailnn',
+            title: 'Tallinna Vanalinn',
             description: 'Ka hea koht, aga mitte nii hea',
-            visible: true,
+            visible: true
         });
     });
 
     map.entities.push(pushpin, tallinnPushpin);
-
 }
 
 // https://dev.virtualearth.net/REST/v1/Locations?q=1000 Vin Scully Ave, Los Angeles,CA&key=YOUR_KEY_HERE
