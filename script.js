@@ -153,7 +153,8 @@ function GetMap() {
     map.setView({ bounds: bounds });
     map.entities.push(pushpin, tallinnPushpin);
 
-    let infobox = new Microsoft.Maps.Infobox(centerPoint, { visible: true });
+    let infobox = new Microsoft.Maps.Infobox(centerPoint, { visible: false });
+    let infoboxTallinn = new Microsoft.Maps.Infobox(tallinnPoint, { visible: false });
     infobox.setMap(map);
 
     Microsoft.Maps.Events.addHandler(pushpin, 'click', function() {
@@ -166,8 +167,8 @@ function GetMap() {
     });
 
     Microsoft.Maps.Events.addHandler(tallinnPushpin, 'click', function() {
-        infobox.setLocation(tallinnPoint);
-        infobox.setOptions({
+        infoboxTallinn.setLocation(tallinnPoint);
+        infoboxTallinn.setOptions({
             title: 'Tallinna Vanalinn',
             description: 'Ka hea koht, aga mitte nii hea',
             visible: true
