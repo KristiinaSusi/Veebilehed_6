@@ -114,7 +114,7 @@
 
 // map
 
-let mapAPIKey = "Aje3Yf3eUXTSm-CmWoisWhPtAO9prQLYi9P557jxobvNqcEFdrkt4PJl7FiP8ZGB ";
+let mapAPIKey = "Aje3Yf3eUXTSm-CmWoisWhPtAO9prQLYi9P557jxobvNqcEFdrkt4PJl7FiP8ZGB";
 
 let map;
 
