@@ -142,14 +142,14 @@ function GetMap() {
     
     let pushpin = new Microsoft.Maps.Pushpin(centerPoint, {
             title: 'Tartu Ülikool',
-            //subTitle: 'Hea koht',
-            //text: 'UT'
+            subTitle: 'Hea koht',
+            text: 'UT'
         });
 
     let tallinnPushpin = new Microsoft.Maps.Pushpin(tallinnPoint, {
             title: 'Tallinna Vanalinn',
-            //subTitle: 'Ka hea koht, aga mitte nii hea',
-            //text: 'Tallinna vanalinn'
+            subTitle: 'Ka hea koht, aga mitte nii hea',
+            text: 'Tallinna vanalinn'
         });
 
 
