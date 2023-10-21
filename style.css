@@ -49,19 +49,7 @@ p, label, form {
     padding: 5px;
 }
 
-/*Siin on minu looming*/ 
-#courier-radio { 
-    margin-left: 30px;
-    padding: 10px;
-    font-size: 1rem;            
-    line-height: 1.5;            
-}
 
-#courier-radio label {
-    margin-right: 10px;
-}
-
-/*Siin lõppeb minu looming*/ 
 
 .hind {
     float: right;
