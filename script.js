@@ -152,8 +152,6 @@ function GetMap() {
             text: 'Tallinna vanalinn'
         });
 
-    map.entities.push(pushpin);
-    map.entities.push(tallinnPushpin);
 
     let locations = [centerPoint, tallinnPoint];
     let bounds = Microsoft.Maps.LocationRect.fromLocations(locations);
