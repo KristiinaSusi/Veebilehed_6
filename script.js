@@ -153,8 +153,8 @@ function GetMap() {
     map.setView({ bounds: bounds });
     map.entities.push(pushpin, tallinnPushpin);
 
-    let infobox = new Microsoft.Maps.Infobox(centerPoint, { visible: false });
-    let infoboxTallinn = new Microsoft.Maps.Infobox(tallinnPoint, { visible: false });
+    let infobox = new Microsoft.Maps.Infobox(centerPoint, { visible: true });
+    let infoboxTallinn = new Microsoft.Maps.Infobox(tallinnPoint, { visible: true });
     infobox.setMap(map);
 
     Microsoft.Maps.Events.addHandler(pushpin, 'click', function() {
